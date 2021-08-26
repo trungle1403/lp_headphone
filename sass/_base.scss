@@ -1,0 +1,72 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: $normal-fz;
+    font-size: $normal-fz;
+    background-color: $body-color;
+    color: $text-color;
+}
+::-webkit-scrollbar {
+    width: .60rem;
+    border-radius: .5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $scroll-thumb-color;
+    border-radius: .5rem;
+}
+*{
+margin: 0;
+padding: 0;
+}
+*,*:before,*:after {
+box-sizing: border-box;
+}
+input,
+textarea,
+select,
+button{
+outline: none;
+font-family: 'Poppins', sans-serif;
+}
+input{
+line-height: normal;
+}
+label,
+button{
+cursor: pointer;
+}
+a {
+text-decoration: none;
+}
+li {
+    list-style: none;
+}
+img {
+display: block;
+max-width: 100%;
+object-fit: cover;
+}
+h1,h2,h3 {
+    color: $text-color;
+}
+
+.title-gradient {
+    background: $text-gradient;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 600;
+    line-height: 4.5rem;
+}
+
+.text-normal {
+    font-size: $normal-fz;
+    color: $text-color-light;
+    line-height: 2rem;
+}

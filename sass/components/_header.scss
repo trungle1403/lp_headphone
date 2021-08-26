@@ -1,0 +1,60 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $body-color;
+    height: $header-height;
+    display: flex;
+    align-items: center;
+    &.sticky {
+        z-index: 999;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+    .nav {
+        display: flex;
+        justify-content: space-between;
+
+        &-logo {
+            width: 30px;
+            height: 30px;
+        }
+
+        &-list {
+            display: flex;
+            gap: 0 4rem;
+        }
+
+        &-link {
+            background: $nav-gradient;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            font-size: $normal-fz;
+            transition: color .3s linear;
+            font-weight: 600;
+            &:hover {
+                color: $white-color;
+            }
+            &.active {
+                color: $white-color;
+            }
+        }
+
+        &-close {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            color: $white-color;
+        }
+
+        &-toggle {
+            cursor: pointer;
+            display: none;
+            font-size: 2rem;
+            color: $white-color;
+        }
+
+    }
+}

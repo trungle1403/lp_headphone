@@ -1,0 +1,26 @@
+.discount {
+    padding: 0 15px;
+    &-container {
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 0 30px;
+        justify-items: center;
+        background-color: $container-color;
+        border-radius: 14px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        padding: 3rem 2rem;
+        align-items: center;
+    }
+
+    &-img {
+        width: 300px;
+    }
+    &-title {
+        font-size: $h2-fz;
+        color: $title-color;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    &-desc {
+        margin-bottom: 30px;
+    }
+}

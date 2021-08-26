@@ -1,0 +1,25 @@
+/*=============== LAYOUT ===============*/
+.section{
+    padding: 4rem 0 2rem;
+
+    &-title{
+        font-size: $bigger-fz;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+.main{
+    overflow: hidden;
+}
+
+.container{
+    max-width:968px;
+    width: 100%;
+    padding:0 15px;
+    margin:0 auto;
+}
+
+.grid{
+    display: grid;
+}

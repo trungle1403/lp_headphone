@@ -1,0 +1,32 @@
+.btn {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    background: $black-color;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    color: $white-color;
+    font-size: $normal-fz;
+    cursor: pointer;
+    transition: all .4s linear;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    &:hover {
+        background: $black-color-light;
+    }
+}
+
+.btn-flex {
+    display: inline-flex;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.btn-icon {
+    font-size: $h3-fz;
+    color: $white-color;
+}
+
+.btn-text {
+    color: $white-color;
+    font-size: $normal-fz;
+}

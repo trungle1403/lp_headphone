@@ -1,0 +1,19 @@
+.case {
+
+    &-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 0 3rem;
+        align-items: center;
+        justify-items: center;
+        position: relative;
+    }
+
+    &-img {
+        width: 300px;
+    }
+    &-desc {
+        color: $text-color-light;
+        font-size: $normal-fz;
+        margin-bottom: 20px;
+    }
+}

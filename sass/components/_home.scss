@@ -1,0 +1,51 @@
+.home {
+    margin-top: $header-height;
+    padding: 6rem 0 2rem;
+    &-container {
+        position: relative;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &-img {
+        width: 280px;
+        position: absolute;
+        top: -16rem;
+        left: 4rem;
+    }
+
+    &-content {
+        padding-top: 1rem;
+    }
+
+    &-header{
+        position: relative;
+    }
+    &-title {
+        font-size: $biggest-fz;
+        line-height: $biggest-fz;
+        position: absolute;
+        top: -6rem;
+        left: 2rem;
+    }
+    &-subtitle {
+        font-size: $big-fz;
+        color: $title-color;
+    }
+    &-footer {
+        padding: 2rem 0;
+    }
+    &-footer-title {
+        font-size: $h2-fz;
+        font-weight: 500;
+        color: $white-color;
+        margin-bottom: 10px;
+    }
+    &-desc {
+        color: $text-color-light;
+        margin-bottom: 30px;
+    }
+
+    .btn-price {
+        font-size: $h3-fz;
+        font-weight: 600;
+    }
+}

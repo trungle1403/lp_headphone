@@ -1,0 +1,260 @@
+
+@media screen and (max-width: 968px){
+    /* ============== HOME =============== */
+    .home {
+        &-img {
+            width: 250px;
+        }
+        &-title {
+            font-size: $bigger-fz;
+            left: 3rem;
+            top: -5rem;
+        }
+        &-subtitle {
+            font-size: 2.5rem;
+        }
+        &-footer {
+            padding: 10px 0;
+
+            &-title {
+                font-size: $h3-fz;
+            }
+        }
+        &-desc {
+            font-size: $small-fz;
+        }
+    }
+    /* ============== FOOTER =============== */
+    .footer {
+        &-container {
+            grid-gap: 30px 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    /* ============== HEADER =============== */
+    .header.open {
+        z-index: 999;
+    }
+    .nav {
+        &-list {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            flex-direction: column;
+            gap: 1rem 0 !important;
+            background-color:$black-color-light;
+            padding: 50px 0;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            transition: top .4s ease;
+            &.open {
+                top: 0;
+            }
+        }
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &-link {
+            font-size: $h3-fz !important;
+        }
+        &-close {
+            display: block !important;
+            position: absolute;
+            top: 10px;
+            right:10px;
+        }
+        &-toggle {
+            display: block !important;
+        }
+    }
+
+    /* ============== HOME =============== */
+    .home {
+        &-title {
+            left: 1rem;
+        }
+        &-img {
+            left: 1rem;
+        }
+    }
+    /* ============== SPECS =============== */
+    .specs {
+        &-title {
+            font-size: $normal-fz;
+        }
+        &-desc {
+            font-size: $small-fz;
+        }
+        &-icon {
+            font-size: $normal-fz;
+        }
+    }
+    /* ============== DISCOUNT =============== */
+    .discount {
+        &-container {
+            padding: 1rem 2rem;
+        }
+        &-title {
+            font-size: $h3-fz;
+        }
+        &-desc {
+            font-size: $small-fz;
+        }
+    }
+    /* ============== FOOTER =============== */
+    .footer {
+        &-container {
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+    /* ============= =============== */
+    .section-title {
+        font-size: $big-fz;
+    }
+}
+@media screen and (max-width: 576px){
+    /* ============== HOME =============== */
+    .home {
+        position: relative;
+        &-container {
+            grid-template-columns: 1fr;
+        }
+        &-img {
+            position: absolute;
+            left:unset;
+            right: 3rem;
+            width: 200px;
+            z-index: 1;
+        }
+        &-content {
+            z-index: 2;
+        }
+    }
+    /* ============== SPECS =============== */
+    .specs {
+        &-container {
+            grid-template-columns: 1fr;
+            justify-items: unset;
+        }
+        &-content {
+            z-index: 2;
+        }
+        &-img {
+            position: absolute;
+            top: 3rem;
+            right: -4rem;
+            z-index: 1;
+            width: 250px;
+        }
+    }
+    /* ============== DISCOUNT =============== */
+    .discount {
+        margin-top: 50px;
+        &-container {
+            grid-template-columns: 1fr;
+            justify-items: unset;
+            position: relative;
+        }
+        &-content {
+            z-index: 2;
+        }
+        &-img {
+            position: absolute;
+            top: 3rem;
+            right: -4rem;
+            z-index: 1;
+            width: 250px;
+        }
+    }
+    
+    /* ============== FOOTER =============== */
+    .footer {
+        &-container {
+            grid-template-columns: 1fr;
+        }
+    }
+    /* ==============  =============== */
+    .container {
+        padding: 0 20px;
+    }
+}
+@media screen and (max-width: 468px){
+    /* ============== HOME =============== */
+    .home {
+        &-img {
+            width: 150px;
+        }
+    } 
+
+     /* ============== BRAND =============== */
+    .brand {
+        &-container {
+            grid-gap: 40px 50px;
+        }
+    }
+    /* ============== CASE =============== */
+    .case {
+        &-container {
+            grid-template-columns: 1fr 1.8fr;
+        }
+        .section-title {
+            margin-bottom: 70px;
+        }
+        &-content {
+            z-index: 2;
+        }
+        &-img {
+            position: absolute;
+            top: -2rem;
+            left: -4rem;
+            z-index: 1;
+            width: 220px;
+        }
+    }
+    /* ============== DISCOUNT =============== */
+    .discount {
+        &-img {
+            width: 170px;
+        }
+    }
+     /* ============== PRODUCT =============== */
+    .product {
+        &-list {
+            grid-template-columns: 170px;
+            justify-content: center;
+            gap: 120px 0;
+        }
+    }
+     /* ============== FOOTER =============== */
+    .footer {
+        &-contact {
+            padding: 1rem;
+            flex-direction: column;
+            gap: 25px 0;
+            align-items: unset;
+        }
+        &-socials {
+            justify-content: center;
+        }
+    }
+    /* ============= =============== */
+    .btn {
+        font-size: $small-fz;
+    }
+    .btn-text {
+        font-size: $small-fz;
+    }
+}
+@media screen and (max-width: 350px){
+    /* ============== CASE =============== */
+    .case {
+        &-img {
+            left: -6rem;
+            width: 220px;
+        }
+    }
+}

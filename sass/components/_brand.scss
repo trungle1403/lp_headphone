@@ -1,0 +1,12 @@
+.brand {
+    
+    &-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+        grid-gap: 30px 50px;
+        justify-items: center;
+    }
+
+    &-img {
+        width: 100px;
+    }
+}
