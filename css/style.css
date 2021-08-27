@@ -636,9 +636,6 @@ h1, h2, h3 {
 }
 @media screen and (max-width: 576px) {
   /* ============== HOME =============== */
-  .home {
-    position: relative;
-  }
   .home-container {
     grid-template-columns: 1fr;
   }
