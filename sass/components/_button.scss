@@ -30,3 +30,70 @@
     color: $white-color;
     font-size: $normal-fz;
 }
+
+.btn-animated {
+    width: 35px;
+    height: 35px;
+    padding: 7px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: $h2-fz;
+        color: $white-color !important;
+        transition: .4s cubic-bezier(.93,.09,.52,.81);
+    }
+    
+}
+
+.animated-tf-y {
+    i:last-child {
+        transform: translate(-50%,0%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    &:hover i:first-child {
+        transform: translate(-50%,-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+    &:hover i:last-child {
+        transform: translate(-50%,-50%);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.animated-zoom {
+    i:first-child {
+        transform: translate(-50%,-50%) scale(1);
+    }
+    i:last-child {
+        transform: translate(-50%,-50%) scale(0);
+    }
+    &:hover i:first-child {
+        transform: translate(-50%,-50%) scale(0);
+    }
+    &:hover i:last-child {
+        transform: translate(-50%,-50%) scale(1);
+    }
+}
+
+.btn-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    opacity: 0;
+    border: 1px solid $white-color;
+    border-radius: 5px;
+    visibility: hidden;
+    transition: .3s linear;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}

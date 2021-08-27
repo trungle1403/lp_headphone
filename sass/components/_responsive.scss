@@ -48,7 +48,7 @@
             background-color:$black-color-light;
             padding: 50px 0;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-            transition: top .4s ease;
+            transition: all .4s ease !important;
             &.open {
                 top: 0;
             }
@@ -179,7 +179,7 @@
     }
     /* ==============  =============== */
     .container {
-        padding: 0 20px;
+        padding: 20px;
     }
 }
 @media screen and (max-width: 468px){
@@ -226,7 +226,7 @@
         &-list {
             grid-template-columns: 170px;
             justify-content: center;
-            gap: 120px 0;
+            gap: 100px 0;
         }
     }
      /* ============== FOOTER =============== */

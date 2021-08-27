@@ -62,11 +62,13 @@
         height: 35px;
         justify-content: center;
         vertical-align: middle;
-        font-size: $normal-fz;
-        color: $white-color;
         background-color: $container-color;
         border-radius: 5px;
         transition: all .3s linear;
+        i {
+            font-size: $normal-fz !important;
+            color: $white-color;
+        }
         &:hover {
             background-color: $black-color;
         }

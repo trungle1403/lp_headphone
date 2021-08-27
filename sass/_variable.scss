@@ -1,7 +1,6 @@
 
 
 
-
 $biggest-fz: 7.5rem;
 $bigger-fz: 4.5rem;
 $big-fz: 3.5rem;
@@ -10,17 +9,11 @@ $h3-fz: 1.25rem;
 $normal-fz: 1rem;
 $small-fz: .875rem;
 $smaller-fz: .813rem;
-$header-height: 100px;
+$header-height: 70px;
+
 @media screen and (max-width: 968px){
-    $biggest-fz: 7rem;
-    $bigger-fz: 4.5rem;
-    $big-fz: 12.5rem;
-    $h2-fz: 1.25rem;
-    $h3-fz: 1.125rem;
-    $normal-fz: .950rem;
-    $small-fz: .800rem;
-    $smaller-fz: .75rem;
-    $header-height: 80px;
+    $biggest-fz: 5.5rem;
+    $bigger-fz: 3.5rem;
 }
 
 
