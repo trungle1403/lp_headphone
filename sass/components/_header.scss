@@ -7,6 +7,7 @@
     height: $header-height;
     display: flex;
     align-items: center;
+    z-index: 9;
     &.sticky {
         z-index: 999;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -14,7 +15,8 @@
     .nav {
         display: flex;
         justify-content: space-between;
-
+        align-items: center;
+        position: relative;
         &-logo {
             width: 30px;
             height: 30px;
@@ -22,6 +24,7 @@
 
         &-list {
             display: flex;
+            align-items: center;
             gap: 0 4rem;
         }
 

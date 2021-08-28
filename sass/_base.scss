@@ -12,13 +12,9 @@ body {
     background-color: $body-color;
     color: $text-color;
 }
-body.light {
-    background-color: #fff;
-    color: $black-color;
-}
+
 ::-webkit-scrollbar {
     width: .60rem;
-    border-radius: .5rem;
 }
 ::-webkit-scrollbar-thumb {
     background-color: $scroll-thumb-color;

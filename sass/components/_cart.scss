@@ -1,0 +1,188 @@
+.cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px 0;
+    &-header {
+        position: relative;
+    }
+    &-count {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: -8px;
+        right: -13px;
+        border-radius: 100%;
+        background-color: #FF6651;
+        font-size: $smaller-fz;
+        font-weight: 600;
+        color: $white-color;
+    }
+    i {
+        font-size: $h3-fz;
+    }
+    
+    // &:hover &-list {
+    //     opacity: 1;
+    //     visibility: visible;
+    // }
+    &-list {
+        width: 350px;
+        position: absolute;
+        top: 130%;
+        right: 0;
+        padding: 10px 15px;
+        background-color: $container-color;
+        display: flex;
+        flex-direction: column;
+        gap:10px 0;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        transform: scale(.8);
+        max-height: 500px;
+        overflow-y: scroll;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+    }
+    &-container {
+        display: flex;
+        gap: 0 10px;
+        align-items: center;
+    }
+    &-item {
+        list-style: none;
+        display: flex;
+        gap: 0 10px;
+        justify-content:space-between;
+        .btn-animated {
+            width: unset;
+        }
+    }
+
+    &-media {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+    }
+    &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &-detail {
+        display: flex;
+        flex-direction: column;
+    }
+    &-name {
+        font-size: $small-fz;
+        color: $white-color;
+        text-transform: capitalize;
+        display:-webkit-box;
+        -webkit-line-clamp:1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+    }
+    &-price {
+        font-size: $smaller-fz;
+        color: $text-color-light;
+    }
+
+    &-quantity {
+        display: flex;
+        align-items: center;
+        gap: 0 5px;
+    }
+    &-number {
+        width: 50px;
+        height: 50px;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: $text-color;
+        font-size: $small-fz;
+        font-weight: 500;
+        border: 1px solid $text-color-light;
+        outline: none;
+        text-align: center;
+    }
+    .quantitys {
+        display: flex;
+        align-items: center;
+        gap: 10px 0;
+        flex-direction: column;
+        &-add,&-minus {
+            cursor: pointer;
+            color: $black-color;
+            font-size: $normal-fz;
+            padding: 7px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &-remove {
+        font-size: $small-fz;
+        color: $black-color-light;
+    }
+
+    &-total {
+        padding-top: 10px;
+        border-top: 1px solid $text-color-light;
+        &-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: $white-color;
+            font-size: $small-fz;
+            margin-bottom: 10px;
+        }
+        &-title {
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+        &-text {
+            color: $text-color;
+        }
+
+        &-footer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0 5px;
+        }
+    }
+    &-checkout,&-clear {
+        padding:5px 10px;
+        i {
+            font-size: $smaller-fz;
+        }
+        .btn-animated {
+            width: unset;
+            margin-right: 5px;
+        }
+        &-text {
+            text-transform: capitalize;
+            font-size: $smaller-fz;
+        }
+    }
+    &-no-data {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: $normal-fz;
+    }
+}

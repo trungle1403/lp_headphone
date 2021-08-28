@@ -9,6 +9,7 @@
         position: absolute;
         top: -16rem;
         left: 4rem;
+        z-index: 9;
     }
 
     &-content {
@@ -46,5 +47,6 @@
     .btn-price {
         font-size: $h3-fz;
         font-weight: 600;
+        margin-left: 1rem;
     }
 }

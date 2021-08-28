@@ -111,6 +111,19 @@
             grid-template-columns: repeat(2,1fr);
         }
     }
+
+    /* ============== CART =============== */
+    .cart {
+        position: absolute;
+        top: 18px;
+        left: 15px;
+
+        &-list {
+            right: unset;
+            left: 0;
+            width: 300px;
+        }
+    }
     /* ============= =============== */
     .section-title {
         font-size: $big-fz;
@@ -124,13 +137,12 @@
         }
         &-img {
             position: absolute;
-            left:unset;
-            right: 3rem;
             width: 200px;
-            z-index: 1;
+            z-index: 10;
+            left: 12rem;
         }
         &-content {
-            z-index: 2;
+            z-index: 11;
         }
     }
     /* ============== SPECS =============== */
@@ -186,6 +198,7 @@
     .home {
         &-img {
             width: 150px;
+            left: 6rem;
         }
     } 
 
@@ -240,9 +253,35 @@
             justify-content: center;
         }
     }
+     /* ============== CART =============== */
+    .cart {
+        &-list {
+            width: 270px !important;
+
+        }
+        &-checkout,
+        &-clear {
+            i {
+                font-size: $smaller-fz !important;
+            }
+        }
+    }
     /* ============= =============== */
+    .section {
+        padding: 3rem 0 1rem;
+    }
+    .home {
+        padding: 10rem 0 1rem;
+    }
     .btn {
         font-size: $small-fz;
+        padding: 0.7rem 1rem;
+    }
+    .btn-flex {
+        gap: 0 .5rem;
+    }
+    .btn-icon {
+        font-size: $h3-fz !important;
     }
     .btn-text {
         font-size: $small-fz;

@@ -28,6 +28,7 @@ const navLink = document.querySelectorAll('.nav-link')
 
 navLink.forEach(n => n.addEventListener('click', ()=>{
     navMenu.classList.remove('open')
+    header.classList.remove('open')
 }))
 
 const sections = document.querySelectorAll('section[id]')
@@ -49,6 +50,191 @@ function scrollActiveLink() {
     })
 }
 window.addEventListener('scroll', scrollActiveLink)
+/*=============== CART ===============*/
+
+const btnAddToCart = document.querySelectorAll('.btn-add')
+const inputCount = document.querySelectorAll('.cart-number')
+btnAddToCart.forEach(btn => btn.addEventListener('click',addToCart ) )
+
+const countHeader = document.querySelector('.cart-count-container')
+
+const cartList = document.querySelector('.cart-list')
+
+const cartNull = "<span class='cart-no-data'> No product here! </span>"
+
+//active cart list
+const cartHeader = document.querySelector('.cart-header')
+cartHeader.addEventListener('click', () => {
+    cartList.classList.toggle('active')
+})
+
+cart = []; 
+
+function addToCart() {
+    var nameItem = this.getAttribute('data-title')
+    var imgItem = this.getAttribute('data-img');
+    var priceItem = this.getAttribute('data-price')
+    updateCart(imgItem, nameItem, priceItem);
+}
+function updateCart(img,name,price) {
+    var objItem = {img,name,price,count:1};
+    // check objItem in cart
+    for(var item in cart) {
+        if (cart[item].name == objItem.name) {
+            cart[item].count ++;
+            saveCart()
+            //exit function
+            return;
+        }
+    }
+    cart.push(objItem);
+    saveCart()
+
+}
+function saveCart() {
+    sessionStorage.setItem('lp_headphone-cart', JSON.stringify(cart));
+    loadCart()
+}
+
+function loadCart() {
+    cart = JSON.parse(sessionStorage.getItem('lp_headphone-cart'));
+
+    var cartItem = ""
+    var cartTotal = ""
+    for(var item in cart) {
+        cartItem += `<li class="cart-item">
+                            <div class="cart-container">
+                                <div class="cart-media">
+                                    <img src="${cart[item].img}" alt="" class="cart-img">
+                                </div>
+                                <div class="cart-detail">
+                                    <div class="cart-name">${cart[item].name}</div>
+                                    <div class="cart-price">$${cart[item].price}</div>
+                                </div>
+                            </div>
+                            <div class="cart-container">
+                                <div class="cart-quantity">
+                                    <input type="text" value=${cart[item].count} class="cart-number">
+                                </div>
+                                <span class="btn-animated animated-zoom cart-remove">
+                                    <i class="ri-close-line"></i>
+                                    <i class="ri-close-line"></i>
+                                </span>
+                            </div>
+                        </li>`
+    }
+    
+    cartTotal = `<div class="cart-total">
+                    <div class="cart-total-header">
+                        <h3 class="cart-total-title">
+                            total:
+                        </h3>
+                        <div class="cart-total-text">
+                            299$
+                        </div>
+                    </div>
+                    <div class="cart-total-footer">
+                        <div class="btn cart-checkout animated-tf-y">
+                            <span class="btn-flex btn-animated">
+                                <i class="ri-bank-card-line btn-icon"></i>
+                                <i class="ri-bank-card-line btn-icon"></i>
+                            </span>
+                            <span class="cart-checkout-text">checkout</span>
+                        </div>
+                        <div class="btn cart-clear animated-tf-y">
+                            <span class="btn-flex btn-animated">
+                                <i class="ri-delete-bin-2-line btn-icon"></i>
+                                <i class="ri-delete-bin-2-line btn-icon"></i>
+                            </span>
+                            <span class="cart-clear-text">clear cart</span>
+                        </div>
+                    </div>
+                </div>`
+    cartContent = cartItem + cartTotal
+    cartList.innerHTML = cartContent
+    
+    // khoi tao thi phai add event
+    const btnClearCart = document.querySelector('.cart-clear')
+    btnClearCart.addEventListener('click', clearCart)
+
+    //count item in cart
+    cartLength = JSON.parse(sessionStorage.getItem('lp_headphone-cart')).length;
+    var span = `<span class='cart-count'> ${cartLength} </span>`
+    countHeader.innerHTML = span;
+
+    //chage quantity
+    const quantityItem = document.querySelectorAll('.cart-number')
+    quantityItem.forEach((item,index) => item.addEventListener('input', changeQuantity))
+
+    showTotal();
+
+    //remove item 
+    const itemRemove = document.querySelectorAll('.cart-remove')
+    itemRemove.forEach((item,index) => item.addEventListener('click', removeCartItem))
+
+}
+
+function changeQuantity() {
+    const itemChange = this.parentNode.parentNode.parentNode;
+    var nameItem = itemChange.getElementsByClassName('cart-name')[0].innerText.toLowerCase()
+    var valueItem = parseInt(this.value)
+    for(var item in cart) {
+        if(!isNaN(valueItem) && valueItem > 0 && valueItem !== null) {
+            if(nameItem == cart[item].name){
+                cart[item].count = valueItem
+                //save in session
+                sessionStorage.setItem('lp_headphone-cart', JSON.stringify(cart));
+                showTotal()
+                return;
+            }
+        } else {
+            itemChange.getElementsByClassName('cart-number')[0].value = 1
+            showTotal()
+            return;
+        }
+    }
+}
+
+function showTotal(){
+    //total 
+    const cartTotalText = document.querySelector('.cart-total-text')
+    var total = 0
+    for(var item in cart) {
+        total += cart[item].price * cart[item].count
+    }
+    cartTotalText.innerHTML = total+"$"
+}
+
+function removeCartItem() {
+    var listCart = this.parentNode.parentNode;
+    var nameItem = listCart.getElementsByClassName('cart-name')[0].innerText.toLowerCase()
+    for(var item in cart) {
+        if(cart[item].name === nameItem) {
+            cart.splice(item, 1);
+            saveCart()
+            if(JSON.parse(sessionStorage.getItem('lp_headphone-cart')).length === 0) {
+                clearCart()
+            }
+            return;
+        }
+    }
+    
+}
+
+
+function clearCart() {
+    cart = []
+    sessionStorage.clear()
+    countHeader.innerHTML = ''
+    cartList.innerHTML = cartNull;
+    cartList.classList.remove('active')
+}
+
+if(sessionStorage.getItem('lp_headphone-cart') != null ){
+    loadCart()
+} else {
+    cartList.innerHTML = cartNull;
+}
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({

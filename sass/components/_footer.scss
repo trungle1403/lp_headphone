@@ -43,11 +43,14 @@
         margin-bottom: 20px;
     }
     &-contact-input {
-        font-size: $smaller-fz;
+        font-size: $normal-fz;
         background-color: transparent;
         color:$text-color-light;
         outline: none;
         border: none;
+        &:placeholder-shown {
+            font-size: $normal-fz;
+        }
     }
     .btn-send {
         flex-shrink: 0;
