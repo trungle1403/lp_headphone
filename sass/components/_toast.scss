@@ -1,0 +1,40 @@
+.toast {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    z-index: 99;
+    .toast-item {
+        background-color: #2a6f97;
+        color: $white-color;
+        padding: 0 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        display: flex;
+        align-items: center;
+        gap: 0 5px;
+        justify-content: space-between;
+        transition: all 0.3s ease-in-out;
+        transform: scale(0);
+        opacity: 0;
+        visibility: hidden;
+        &.active {
+            opacity: 1;
+            transform: scale(1);
+            visibility: visible;
+        }
+    }
+    &-content {
+        display: flex;
+        gap: 0 5px;
+        font-size: $small-fz;
+        i {
+            vertical-align: middle;
+        }
+    }
+    &-text {
+        text-transform: capitalize;
+    }
+    
+}

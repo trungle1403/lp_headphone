@@ -123,21 +123,24 @@
     .quantitys {
         display: flex;
         align-items: center;
-        gap: 10px 0;
         flex-direction: column;
         &-add,&-minus {
             cursor: pointer;
-            color: $black-color;
+            color: $white-color;
             font-size: $normal-fz;
-            padding: 7px 10px;
+            width: 25px;
+            height: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
+            border: 1px solid $text-color-light;
+            user-select: none;
         }
     }
     &-remove {
         font-size: $small-fz;
         color: $black-color-light;
+        user-select: none;
     }
 
     &-total {

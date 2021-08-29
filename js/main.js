@@ -39,7 +39,7 @@ function scrollActiveLink() {
         //height of section
         const sectionHeight = s.offsetHeight
         //sum height from top to section 0 620 1230 2000 ....
-        //70 is height header
+        //90 is height header
         const sectionTop = s.offsetTop - 90;
         sectionId = s.getAttribute('id')
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -68,6 +68,7 @@ cartHeader.addEventListener('click', () => {
     cartList.classList.toggle('active')
 })
 
+
 cart = []; 
 
 function addToCart() {
@@ -76,6 +77,7 @@ function addToCart() {
     var priceItem = this.getAttribute('data-price')
     updateCart(imgItem, nameItem, priceItem);
 }
+
 function updateCart(img,name,price) {
     var objItem = {img,name,price,count:1};
     // check objItem in cart
@@ -91,6 +93,7 @@ function updateCart(img,name,price) {
     saveCart()
 
 }
+
 function saveCart() {
     sessionStorage.setItem('lp_headphone-cart', JSON.stringify(cart));
     loadCart()
@@ -115,6 +118,10 @@ function loadCart() {
                             <div class="cart-container">
                                 <div class="cart-quantity">
                                     <input type="text" value=${cart[item].count} class="cart-number">
+                                    <div class="quantitys">
+                                        <span class="quantitys-add">+</span>
+                                        <span class="quantitys-minus">-</span>
+                                    </div>
                                 </div>
                                 <span class="btn-animated animated-zoom cart-remove">
                                     <i class="ri-close-line"></i>
@@ -172,6 +179,12 @@ function loadCart() {
     const itemRemove = document.querySelectorAll('.cart-remove')
     itemRemove.forEach((item,index) => item.addEventListener('click', removeCartItem))
 
+    // changeQuantity with Add and Minus
+    const btnAddQuantity = document.querySelectorAll('.quantitys-add')
+    btnAddQuantity.forEach(btnAdd => btnAdd.addEventListener('click', addQuantity))
+    const btnMinusQuantity = document.querySelectorAll('.quantitys-minus')
+    btnMinusQuantity.forEach(btnMinus => btnMinus.addEventListener('click', minusQuantity))
+
 }
 
 function changeQuantity() {
@@ -221,6 +234,35 @@ function removeCartItem() {
     
 }
 
+function addQuantity() {
+    var itemAdded = this.parentNode.parentNode.parentNode.parentNode
+    nameAdded = itemAdded.getElementsByClassName('cart-name')[0].innerText.toLowerCase()
+    for(var item in cart){
+        if(cart[item].name == nameAdded){
+            cart[item].count ++
+            saveCart()
+            return
+        }
+    }
+}
+
+function minusQuantity() {
+    var itemMinus = this.parentNode.parentNode.parentNode.parentNode
+    nameMinus = itemMinus.getElementsByClassName('cart-name')[0].innerText.toLowerCase()
+    for(var item in cart){
+        if(cart[item].name == nameMinus){
+            if(cart[item].count - 1 < 1) {
+                cart[item].count = 1
+                saveCart()
+                return
+            }else {
+                cart[item].count --
+                saveCart()
+                return
+            }
+        }
+    }
+}
 
 function clearCart() {
     cart = []
@@ -244,7 +286,7 @@ const sr = ScrollReveal({
     // reset: true
 })
 
-sr.reveal(`.nav-logo, .nav-list, .section-title`,{delay: 400})
+sr.reveal(`.nav-logo, .nav-list, .section-title`,{origin: 'top'})
 sr.reveal(`.home-content`,{delay: 500})
 sr.reveal(`.home-img`,{delay: 700, origin: 'top'})
 sr.reveal(`.brand-img, .product-item, .footer-logo, .footer-column, .footer-copyright`,{origin: 'top', interval: 100})

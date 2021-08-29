@@ -92,6 +92,7 @@
     border-radius: 5px;
     visibility: hidden;
     transition: .3s linear;
+    z-index: 99;
     &.active {
         opacity: 1;
         visibility: visible;

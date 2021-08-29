@@ -196,6 +196,7 @@ h1, h2, h3 {
   border-radius: 5px;
   visibility: hidden;
   transition: 0.3s linear;
+  z-index: 99;
 }
 .btn-to-top.active {
   opacity: 1;
@@ -922,21 +923,24 @@ h1, h2, h3 {
 .cart .quantitys {
   display: flex;
   align-items: center;
-  gap: 10px 0;
   flex-direction: column;
 }
 .cart .quantitys-add, .cart .quantitys-minus {
   cursor: pointer;
-  color: #0a0a0b;
+  color: #FFF;
   font-size: 1rem;
-  padding: 7px 10px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #a2a6a9;
+  user-select: none;
 }
 .cart-remove {
   font-size: 0.875rem;
   color: #141515;
+  user-select: none;
 }
 .cart-total {
   padding-top: 10px;
@@ -981,6 +985,46 @@ h1, h2, h3 {
   text-align: center;
   text-transform: uppercase;
   font-size: 1rem;
+}
+
+.toast {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  z-index: 99;
+}
+.toast .toast-item {
+  background-color: #2a6f97;
+  color: #FFF;
+  padding: 0 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+}
+.toast .toast-item.active {
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+}
+.toast-content {
+  display: flex;
+  gap: 0 5px;
+  font-size: 0.875rem;
+}
+.toast-content i {
+  vertical-align: middle;
+}
+.toast-text {
+  text-transform: capitalize;
 }
 
 /*# sourceMappingURL=style.css.map */
