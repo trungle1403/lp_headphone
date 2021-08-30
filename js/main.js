@@ -198,12 +198,11 @@ function changeQuantity() {
                 //save in session
                 sessionStorage.setItem('lp_headphone-cart', JSON.stringify(cart));
                 showTotal()
-                return;
             }
         } else {
             itemChange.getElementsByClassName('cart-number')[0].value = 1
+            cart[item].count = 1
             showTotal()
-            return;
         }
     }
 }
@@ -287,8 +286,8 @@ const sr = ScrollReveal({
 })
 
 sr.reveal(`.nav-logo, .nav-list, .section-title`,{origin: 'top'})
-sr.reveal(`.home-content`,{delay: 500})
-sr.reveal(`.home-img`,{delay: 700, origin: 'top'})
+sr.reveal(`.home-content`,{ origin: 'bottom'})
+sr.reveal(`.home-img`,{ origin: 'bottom'})
 sr.reveal(`.brand-img, .product-item, .footer-logo, .footer-column, .footer-copyright`,{origin: 'top', interval: 100})
 sr.reveal(`.case-img`,{origin: 'top'})
 sr.reveal(`.case-content`)
